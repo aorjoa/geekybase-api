@@ -2,8 +2,9 @@ FROM golang:1.10.3
 
 WORKDIR /go/src/app
 COPY . .
+COPY ./certs ~/.ssh/certs
 
-RUN go get -u github.com/golang/dep/...
+RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
 RUN dep ensure
 RUN go build -o punyim-api main.go
