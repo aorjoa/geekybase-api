@@ -1,7 +1,11 @@
 .DS_Store
 coverage.txt
 _test
+certs/
 vendor
 .idea
 *.iml
 *.out
+*.crt
+*.key
+*.pem
