@@ -2,7 +2,6 @@ FROM golang:1.10.3
 
 WORKDIR /go/src/app
 COPY . .
-COPY ./certs ~/.ssh/certs
 
 RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
