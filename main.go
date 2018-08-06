@@ -18,6 +18,7 @@ func main() {
 				Remote Address: %s<br>
 				Method: %s<br>
 				Path: %s<br>
+				Message : Test
 			</code>
 		`
 		return c.HTML(http.StatusOK, fmt.Sprintf(format, req.Proto, req.Host, req.RemoteAddr, req.Method, req.URL.Path))
