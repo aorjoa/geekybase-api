@@ -14,7 +14,6 @@ branches:
 
 env:
   - DEP_VERSION="0.3.2"
-  - IMAGE_NAME=aorjoa/geekybase-api
 
 before_install:
   # Setup dependency management tool
