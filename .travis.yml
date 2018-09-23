@@ -1,3 +1,8 @@
+sudo: required
+
+services:
+  - docker
+
 language: go
 
 go:
@@ -9,6 +14,7 @@ branches:
 
 env:
   - DEP_VERSION="0.3.2"
+  - IMAGE_NAME=aorjoa/geekybase-api
 
 before_install:
   # Setup dependency management tool
@@ -21,6 +27,16 @@ install:
 script:
   - go test ./...
   - go test -race -coverprofile=coverage.txt -covermode=atomic
+
+before_deploy:
+  - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
+  - docker tag "$IMAGE_NAME" "${IMAGE_NAME}:latest"
+
+deploy:
+  provider: script
+  script: docker push "${IMAGE_NAME}:latest" && docker push "${IMAGE_NAME}:${version}"
+  on:
+    branch: master
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
