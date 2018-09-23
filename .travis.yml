@@ -13,9 +13,7 @@ branches:
     - master
 
 env:
-  global:
-    - DEP_VERSION="0.3.2"
-    - IMAGE_NAME=aorjoa/geekybase-api
+  - DEP_VERSION="0.3.2"
 
 before_install:
   # Setup dependency management tool
