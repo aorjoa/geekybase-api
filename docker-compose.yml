@@ -1,6 +1,6 @@
 version: "3"
 services:
   api:
-    image: aorjoa/punyim-api:latest
+    image: aorjoa/geekybase-api:latest
     ports:
       - "443:1323"
