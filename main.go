@@ -23,5 +23,5 @@ func main() {
 		`
 		return c.HTML(http.StatusOK, fmt.Sprintf(format, req.Proto, req.Host, req.RemoteAddr, req.Method, req.URL.Path))
 	})
-	e.Logger.Fatal(e.StartTLS(":1323", "./certs/punyim.crt", "./certs/server.key"))
+	e.Logger.Fatal(e.Start(":1323"))
 }
