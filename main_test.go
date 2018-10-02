@@ -2,22 +2,33 @@ package main
 
 import (
 	"net/http/httptest"
-	"github.com/stretchr/testify/assert"
-	"github.com/labstack/echo"
 	"testing"
+
+	"github.com/labstack/echo"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestDummy(t *testing.T) {
- return
+	return
+}
+
+func TestHealthCheckFun(t *testing.T) {
+	e := echo.New()
+	req := httptest.NewRequest(echo.GET, "/health", nil)
+	rec := httptest.NewRecorder()
+	c := e.NewContext(req, rec)
+
+	assert.NoError(t, healthCheck(c))
+	assert.Equal(t, "ok!", rec.Body.String())
 }
 
 func TestExampleFunc(t *testing.T) {
 	e := echo.New()
-	req := httptest.NewRequest(echo.GET,"/", nil)
+	req := httptest.NewRequest(echo.GET, "/", nil)
 	rec := httptest.NewRecorder()
-	c := e.NewContext(req,rec)
+	c := e.NewContext(req, rec)
 
-	xRes :=`
+	xRes := `
 		<code>
 			Protocol: HTTP/1.1<br>
 			Host: example.com<br>
@@ -29,5 +40,5 @@ func TestExampleFunc(t *testing.T) {
 	`
 
 	assert.NoError(t, example(c))
-	assert.Equal(t,xRes, rec.Body.String())
+	assert.Equal(t, xRes, rec.Body.String())
 }

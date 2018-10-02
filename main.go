@@ -9,8 +9,15 @@ import (
 
 func main() {
 	e := echo.New()
+
+	e.GET("/health", healthCheck)
 	e.GET("/", example)
+
 	e.Logger.Fatal(e.Start(":1323"))
+}
+
+func healthCheck(c echo.Context) error {
+	return c.String(http.StatusOK, "ok!")
 }
 
 func example(c echo.Context) error {
