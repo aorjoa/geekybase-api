@@ -3,4 +3,4 @@ services:
   api:
     image: aorjoa/geekybase-api:latest
     ports:
-      - "443:1323"
+      - "1323:1323"
