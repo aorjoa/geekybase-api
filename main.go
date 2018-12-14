@@ -12,6 +12,7 @@ func main() {
 
 	e.GET("/health", healthCheck)
 	e.GET("/", example)
+	e.GET("/feeds", getFeeds)
 
 	e.Logger.Fatal(e.Start(":1323"))
 }
