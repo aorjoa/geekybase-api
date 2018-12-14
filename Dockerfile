@@ -4,7 +4,7 @@ WORKDIR /go/src/app
 COPY . .
 
 ENV GO111MODULE=on
-RUN go build -o geekybase-api main.go
+RUN go build -o geekybase-api .
 
 EXPOSE 1323
 
