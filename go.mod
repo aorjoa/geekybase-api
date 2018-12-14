@@ -2,6 +2,7 @@ module github.com/Aorjoa/geekybase-api
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/gorilla/feeds v1.1.0
 	github.com/labstack/echo v3.3.5+incompatible
 	github.com/labstack/gommon v0.0.0-20180613044413-d6898124de91 // indirect
 	github.com/mattn/go-colorable v0.0.9 // indirect
